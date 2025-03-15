@@ -2,6 +2,7 @@ import fetchCaracters from "@/services/api";
 import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { Image, Text, View , FlatList} from "react-native";
+import { StyleSheet } from "react-native";
 
 
 interface Personagem{
@@ -28,14 +29,14 @@ export default function Home() {
             <Text>Página de detalhes</Text>
             <FlatList 
              data={personagens}
-             keyExtractor={((item => {item.id.toString()}))}
-             renderItem={({item})=> {
+             keyExtractor= {item => item.id.toString()}
+             renderItem={({item})=> (
                 <View style={style.card}>
-                    <Image source={{uri:item.images[0]}} style={style.image}/>
+                    <Image source={{uri:item.imagens[0]}} style={style.image}/>
                     <Text style={style.name}>{item.name}</Text>
 
                 </View>
-             }}
+            )}
              >
 
              </FlatList>
